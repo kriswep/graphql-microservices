@@ -1,4 +1,4 @@
-import { find } from 'lodash';
+import { find, filter } from 'lodash';
 
 // mock data
 const posts = [
@@ -33,6 +33,7 @@ const resolvers = {
   Query: {
     allPosts: () => posts,
     post: (_, { id }) => find(posts, { id: id }),
+    postByAuthorId: (_, { authorId }) => filter(posts, { authorId: authorId }),
   },
 };
 

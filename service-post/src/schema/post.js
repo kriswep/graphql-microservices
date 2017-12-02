@@ -6,7 +6,7 @@ type Post {
   title: String
   # The posts' actual content
   content: String
-  author: String
+  authorId: String
 }
 
 # Queries from post service
@@ -15,6 +15,8 @@ type Query {
   allPosts: [Post]
   # A single post
   post(id: Int!): Post
+  # A single post
+  postByAuthorId(authorId: Int!): [Post]
 }
 `;
 

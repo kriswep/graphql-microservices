@@ -8,7 +8,7 @@ import { graphqlExpress, graphiqlExpress } from 'apollo-server-express';
 import schema from './schema';
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3010;
 
 app.use('/graphql', bodyParser.json(), graphqlExpress({ schema }));
 app.use(
