@@ -33,7 +33,7 @@ const resolvers = {
   Query: {
     allPosts: () => posts,
     post: (_, { id }) => find(posts, { id: id }),
-    postByAuthorId: (_, { authorId }) => filter(posts, { authorId: authorId }),
+    postsByAuthorId: (_, { authorId }) => filter(posts, { authorId: authorId }),
   },
 };
 

@@ -16,7 +16,7 @@ type Query {
   # A single post
   post(id: Int!): Post
   # A single post
-  postByAuthorId(authorId: Int!): [Post]
+  postsByAuthorId(authorId: Int!): [Post]
 }
 `;
 
