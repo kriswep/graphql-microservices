@@ -1,38 +1,14 @@
-const resolvers = mergeInfo => ({
-  User: {
-    posts: {
-      fragment: `fragment UserFragment on User { id }`,
-      resolve(parent, args, context, info) {
-        const authorId = parent.id;
-        return mergeInfo.delegate(
-          'query',
-          'postsByAuthorId',
-          {
-            authorId,
-          },
-          context,
-          info,
-        );
-      },
-    },
-  },
-  Post: {
-    author: {
-      fragment: `fragment PostFragment on Post { authorId }`,
-      resolve(parent, args, context, info) {
-        const id = parent.authorId;
-        return mergeInfo.delegate(
-          'query',
-          'user',
-          {
-            id,
-          },
-          context,
-          info,
-        );
-      },
-    },
-  },
-});
+import makePostResolver from './post';
+import makeUserResolver from './user';
+
+const resolvers = mergeInfo => {
+  const Post = makePostResolver(mergeInfo);
+  const User = makeUserResolver(mergeInfo);
+
+  return {
+    Post,
+    User,
+  };
+};
 
 export default resolvers;
