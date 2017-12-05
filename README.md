@@ -27,7 +27,8 @@ my-service/service-post
 ```
 
 You could start multiple services as well to get easy round robin load
-balancing. We added field hash to post query
+balancing. We added a hash field to our post service to identify the handling
+process.
 
 **service-user**
 
