@@ -7,6 +7,7 @@ type Post {
   # The posts' actual content
   content: String
   authorId: String
+  hash: String
 }
 
 # Queries from post service
