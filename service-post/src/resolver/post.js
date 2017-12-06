@@ -15,7 +15,6 @@ const posts = [
     authorId: 1,
     title: 'Cool first post',
     content: 'Hey, this is the first post from our post service',
-    hash: digest,
   },
   {
     id: 2,
@@ -46,6 +45,9 @@ const resolvers = {
     allPosts: () => posts,
     post: (_, { id }) => find(posts, { id: id }),
     postsByAuthorId: (_, { authorId }) => filter(posts, { authorId: authorId }),
+    identifier: () => ({
+      hash: digest,
+    }),
   },
 };
 

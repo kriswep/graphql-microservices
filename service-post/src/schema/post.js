@@ -7,6 +7,10 @@ type Post {
   # The posts' actual content
   content: String
   authorId: String
+}
+
+type Identifier {
+  # a unique hash to identify the running node process
   hash: String
 }
 
@@ -18,6 +22,8 @@ type Query {
   post(id: Int!): Post
   # A single post
   postsByAuthorId(authorId: Int!): [Post]
+  # infos identifying running process
+  identifier: Identifier
 }
 `;
 
