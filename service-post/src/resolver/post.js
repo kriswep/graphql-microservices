@@ -14,29 +14,29 @@ const posts = [
     id: 1,
     authorId: 1,
     title: 'Cool first post',
-    content: 'Hey, this is the first post from our post service',
+    content: 'Hey, this is the first post from our post service'
   },
   {
     id: 2,
     authorId: 2,
     title: 'Cool second post',
     content: 'Hey, this is the second post from our post service',
-    hash: digest,
+    hash: digest
   },
   {
     id: 3,
     authorId: 2,
     title: 'Cool third post',
     content: 'Hey, this is the third post from our post service',
-    hash: digest,
+    hash: digest
   },
   {
     id: 4,
     authorId: 3,
     title: 'Cool fourth post',
     content: 'Hey, this is the fourth post from our post service',
-    hash: digest,
-  },
+    hash: digest
+  }
 ];
 
 // add some small resolvers
@@ -46,9 +46,9 @@ const resolvers = {
     post: (_, { id }) => find(posts, { id: id }),
     postsByAuthorId: (_, { authorId }) => filter(posts, { authorId: authorId }),
     identifier: () => ({
-      hash: digest,
-    }),
-  },
+      hash: digest
+    })
+  }
 };
 
 export default resolvers;
