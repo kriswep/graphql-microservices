@@ -10,6 +10,3 @@ const resolvers = merge(rootResolvers, userResolver);
 
 // export all resolvers
 export default resolvers;
-
-import { merge } from 'lodash';
-import { makeExecutableSchema } from 'graphql-tools';

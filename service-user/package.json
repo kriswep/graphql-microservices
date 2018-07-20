@@ -12,15 +12,11 @@
   "dependencies": {
     "@std/esm": "^0.18.0",
     "apollo-server": "^2.0.0",
-    "apollo-server-express": "^1.2.0",
-    "body-parser": "^1.18.2",
-    "express": "^4.16.2",
-    "graphql": "^0.11.7",
-    "graphql-tools": "^2.11.0",
-    "lodash": "^4.17.4"
+    "graphql": "^0.13.2",
+    "lodash": "^4.17.10"
   },
   "devDependencies": {
-    "prettier": "1.8.2"
+    "prettier": "^1.13.7"
   },
   "@std/esm": {
     "esm": "js",

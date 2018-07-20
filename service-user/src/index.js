@@ -1,23 +1,28 @@
-import express from 'express';
-// This package automatically parses JSON requests.
-import bodyParser from 'body-parser';
-// This package will handle GraphQL server requests and responses
-// for you, based on your schema.
-import { graphqlExpress, graphiqlExpress } from 'apollo-server-express';
+import { ApolloServer, gql } from 'apollo-server';
+import typeDefs from './schema/user';
+import resolvers from './resolver';
 
-import schema from './schema';
-
-const app = express();
 const PORT = process.env.PORT || 3020;
 
-app.use('/graphql', bodyParser.json(), graphqlExpress({ schema }));
-app.use(
-  '/graphiql',
-  graphiqlExpress({
-    endpointURL: '/graphql',
-  }),
-);
+const server = new ApolloServer({ typeDefs, resolvers });
 
-app.listen(PORT, () => {
-  console.log(`Post service server running on port ${PORT}.`);
+server.listen(PORT).then(({ url }) => {
+  console.log(`🚀 Server ready at ${url}`);
 });
+
+// import schema from './schema';
+
+// const app = express();
+// const PORT = process.env.PORT || 3020;
+
+// app.use('/graphql', bodyParser.json(), graphqlExpress({ schema }));
+// app.use(
+//   '/graphiql',
+//   graphiqlExpress({
+//     endpointURL: '/graphql',
+//   }),
+// );
+
+// app.listen(PORT, () => {
+//   console.log(`Post service server running on port ${PORT}.`);
+// });
