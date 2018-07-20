@@ -1,7 +1,9 @@
 # GRAPHQL-MICROSERVICES
 
 This project showcases, how one could set up a graphql server using a (mildy simplified) microservice
-architecture. 
+architecture.
+
+_Powered by [Apollo Server 2](https://github.com/apollographql/apollo-server/)_
 
 ## Start in docker env - manually
 
