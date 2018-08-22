@@ -67,3 +67,5 @@ Sidenote: If you need to stop and remove all services do sthg like
 sudo docker stop $(sudo docker ps -a -q)
 sudo docker rm $(sudo docker ps -a -q)
 ```
+
+Attention: This stops and removes all your running docker images
