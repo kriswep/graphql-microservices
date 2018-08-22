@@ -4,25 +4,21 @@
   "description": "graphql microservice gateway",
   "main": "./src/index.js",
   "scripts": {
-    "start": "node -r @std/esm ./src/index.js",
+    "start": "node -r esm ./src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Christoph Benjamin Weber",
   "license": "MIT",
   "dependencies": {
-    "@std/esm": "^0.18.0",
     "apollo-link-http": "^1.5.4",
-    "apollo-server": "^2.0.0",
+    "apollo-server": "^2.0.5",
+    "esm": "^3.0.79",
     "graphql": "^0.13.2",
-    "graphql-tools": "^3.0.5",
+    "graphql-tools": "^3.1.1",
     "lodash": "^4.17.10",
-    "node-fetch": "^2.1.2"
+    "node-fetch": "^2.2.0"
   },
   "devDependencies": {
-    "prettier": "^1.13.7"
-  },
-  "@std/esm": {
-    "esm": "js",
-    "cjs": true
+    "prettier": "^1.14.2"
   }
 }
