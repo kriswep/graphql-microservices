@@ -5,6 +5,13 @@ architecture.
 
 _Powered by [Apollo Server 2](https://github.com/apollographql/apollo-server/)_
 
+## Start in docker - via docker compose
+
+`sudo docker-compose up -d`
+
+remove:
+`sudo docker-compose down`
+
 ## Start in docker env - manually
 
 setup a new docker network initially.

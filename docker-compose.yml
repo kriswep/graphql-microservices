@@ -1,0 +1,28 @@
+version: "3"
+services:
+  post:
+    build: ./service-post
+    networks:
+      my-service:
+        aliases:
+          - service-post
+  user:
+    build: ./service-user
+    networks:
+      my-service:
+        aliases:
+          - service-user
+  gateway:
+    build: ./service-gateway
+    ports:
+      - "3000:3000"
+    environment:
+      - POST_URL=http://service-post:3010/graphql
+      - USER_URL=http://service-user:3020/graphql
+    networks:
+      my-service:
+        aliases:
+          - service-gateway
+
+networks:
+  ? my-service
