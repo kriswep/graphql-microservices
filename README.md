@@ -9,6 +9,10 @@ _Powered by [Apollo Server 2](https://github.com/apollographql/apollo-server/)_
 
 `sudo docker-compose up -d`
 
+Scale single services, eg the post-service, which has an identifier field for demo purposes build in
+
+`sudo docker-compose up -d --scale post=2`
+
 remove:
 `sudo docker-compose down`
 
