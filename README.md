@@ -16,6 +16,10 @@ Scale single services, eg the post-service, which has an identifier field for de
 remove:
 `sudo docker-compose down`
 
+Open the example API-Playground on http://localhost:3000 and issue GraphQL request.
+
+It is composed of the separated user and post services, stitched together.
+
 ## Start in docker env - manually
 
 setup a new docker network initially.
