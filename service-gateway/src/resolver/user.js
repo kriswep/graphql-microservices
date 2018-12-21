@@ -1,9 +1,9 @@
-export default mergeInfo => ({
+export default {
   posts: {
     fragment: `fragment UserFragment on User { id }`,
     resolve(parent, args, context, info) {
       const authorId = parseInt(parent.id);
-      return mergeInfo.delegate(
+      return info.mergeInfo.delegate(
         'query',
         'postsByAuthorId',
         {
@@ -14,4 +14,4 @@ export default mergeInfo => ({
       );
     }
   }
-});
+};
