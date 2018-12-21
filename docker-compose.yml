@@ -16,6 +16,9 @@ services:
     build: ./service-gateway
     ports:
       - "3000:3000"
+    depends_on:
+      - "post"
+      - "user"
     environment:
       - POST_URL=http://service-post:3010/graphql
       - USER_URL=http://service-user:3020/graphql
@@ -25,4 +28,4 @@ services:
           - service-gateway
 
 networks:
-  ? my-service
+  my-service:
