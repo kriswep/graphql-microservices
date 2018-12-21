@@ -1,6 +1,6 @@
 import { mergeSchemas } from 'graphql-tools';
 
-import resolvers from '../resolver';
+import makeResolvers from '../resolver';
 
 import makePostSchema from '../remoteSchema/post';
 import makeUserSchema from '../remoteSchema/user';
@@ -11,8 +11,10 @@ export default async () => {
   const postSchema = await makePostSchema();
   const userSchema = await makeUserSchema();
 
+  const resolvers = makeResolvers({ postSchema, userSchema });
+
   return mergeSchemas({
     schemas: [postSchema, userSchema, relationsSchema],
-    resolvers,
+    resolvers
   });
 };

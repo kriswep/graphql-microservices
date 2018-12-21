@@ -1,9 +1,14 @@
-import Post from './post';
-import User from './user';
+import makePostResolver from './post';
+import makeUserResolver from './user';
 
-const resolvers = {
-  Post,
-  User
+const makeResolvers = ({ postSchema, userSchema }) => {
+  const Post = makePostResolver(userSchema);
+  const User = makeUserResolver(postSchema);
+
+  return {
+    Post,
+    User
+  };
 };
 
-export default resolvers;
+export default makeResolvers;
