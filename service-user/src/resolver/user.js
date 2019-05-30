@@ -29,6 +29,11 @@ const resolvers = {
   Query: {
     allUsers: () => users,
     user: (_, { id }) => find(users, { id: id })
+  },
+  User: {
+    __resolveReference({ id }) {
+      return find(users, { id: id });
+    }
   }
 };
 

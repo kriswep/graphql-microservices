@@ -10,13 +10,10 @@
   "author": "Christoph Benjamin Weber",
   "license": "MIT",
   "dependencies": {
-    "apollo-link-http": "^1.5.14",
+    "@apollo/gateway": "^0.5.0",
     "apollo-server": "^2.5.1",
     "esm": "^3.2.25",
-    "graphql": "^14.3.1",
-    "graphql-tools": "^4.0.4",
-    "lodash": "^4.17.11",
-    "node-fetch": "^2.6.0"
+    "graphql": "^14.3.1"
   },
   "devDependencies": {
     "prettier": "^1.17.1"

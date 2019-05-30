@@ -1,13 +1,23 @@
 import { ApolloServer } from 'apollo-server';
-
-import makeSchema from './schema';
+import { ApolloGateway } from '@apollo/gateway';
 
 const PORT = process.env.PORT || 3000;
 
-const startGateway = async () => {
-  const schema = await makeSchema();
+const postUrl = process.env.POST_URL || 'http://localhost:3010/graphql';
+const userUrl = process.env.USER_URL || 'http://localhost:3020/graphql';
 
-  const server = new ApolloServer({ schema });
+const gateway = new ApolloGateway({
+  serviceList: [
+    { name: 'post', url: postUrl },
+    { name: 'user', url: userUrl }
+    // more services here
+  ]
+});
+
+const startGateway = async () => {
+  const { schema, executor } = await gateway.load();
+
+  const server = new ApolloServer({ schema, executor });
 
   server.listen(PORT).then(({ url }) => {
     console.log(`🚀 Server ready at ${url}`);
