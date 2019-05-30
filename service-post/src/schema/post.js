@@ -2,13 +2,13 @@ import { gql } from 'apollo-server';
 
 const post = gql`
   # A post entry
-  type Post {
+  type Post @key(fields: "id") {
     id: Int!
     # The posts' title
     title: String
     # The posts' actual content
     content: String
-    authorId: String
+    author: User
   }
 
   type Identifier {
@@ -26,6 +26,11 @@ const post = gql`
     postsByAuthorId(authorId: Int!): [Post]
     # infos identifying running process
     identifier: Identifier
+  }
+
+  extend type User @key(fields: "id") {
+    id: Int! @external
+    posts: [Post]
   }
 `;
 

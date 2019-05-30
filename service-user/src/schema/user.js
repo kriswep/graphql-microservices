@@ -2,7 +2,7 @@ import { gql } from 'apollo-server';
 
 const user = gql`
   # A user
-  type User {
+  type User @key(fields: "id") {
     id: Int!
     # The users' title
     fullName: String

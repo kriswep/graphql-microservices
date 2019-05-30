@@ -43,11 +43,20 @@ const posts = [
 const resolvers = {
   Query: {
     allPosts: () => posts,
-    post: (_, { id }) => find(posts, { id: id }),
+    post: (_, { id }) => find(posts, { id }),
     postsByAuthorId: (_, { authorId }) => filter(posts, { authorId: authorId }),
     identifier: () => ({
       hash: digest
     })
+  },
+  Post: {
+    __resolveReference({ id }) {
+      return find(posts, { id });
+    },
+    author: ({ authorId }) => ({ __typename: 'User', id: authorId })
+  },
+  User: {
+    posts: ({ id }) => filter(posts, { authorId: id })
   }
 };
 

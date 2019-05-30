@@ -3,7 +3,7 @@
 This project showcases, how one could set up a graphql server using a (mildy simplified) microservice
 architecture.
 
-_Powered by [Apollo Server 2](https://github.com/apollographql/apollo-server/), schema stitching by [graphql-tools 4](https://github.com/apollographql/graphql-tools) and many more_
+_Powered by [Apollo Server 2](https://github.com/apollographql/apollo-server/), using [Apollo Federation](https://www.apollographql.com/docs/apollo-server/federation/introduction/) to expose a single, 'monolithic' API and many more_
 
 ## Start in docker - via docker compose
 
