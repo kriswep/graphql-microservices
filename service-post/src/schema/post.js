@@ -2,7 +2,7 @@ import { gql } from 'apollo-server';
 
 const post = gql`
   # A post entry
-  type Post {
+  type Post @key(fields: "id") {
     id: Int!
     # The posts' title
     title: String
