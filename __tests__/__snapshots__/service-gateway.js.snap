@@ -1,0 +1,104 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`gateway should response to query 1`] = `
+Object {
+  "data": Object {
+    "allPosts": Array [
+      Object {
+        "author": Object {
+          "email": "cb@w.eber",
+          "fullName": "C.B. Weber",
+          "posts": Array [
+            Object {
+              "title": "Cool first post",
+            },
+          ],
+        },
+        "id": 1,
+        "title": "Cool first post",
+      },
+      Object {
+        "author": Object {
+          "email": "s.baren@d.aren",
+          "fullName": "Sara Baren",
+          "posts": Array [
+            Object {
+              "title": "Cool second post",
+            },
+            Object {
+              "title": "Cool third post",
+            },
+          ],
+        },
+        "id": 2,
+        "title": "Cool second post",
+      },
+      Object {
+        "author": Object {
+          "email": "s.baren@d.aren",
+          "fullName": "Sara Baren",
+          "posts": Array [
+            Object {
+              "title": "Cool second post",
+            },
+            Object {
+              "title": "Cool third post",
+            },
+          ],
+        },
+        "id": 3,
+        "title": "Cool third post",
+      },
+      Object {
+        "author": Object {
+          "email": "horst@m.eier",
+          "fullName": "Horst Meier",
+          "posts": Array [
+            Object {
+              "title": "Cool fourth post",
+            },
+          ],
+        },
+        "id": 4,
+        "title": "Cool fourth post",
+      },
+    ],
+    "allUsers": Array [
+      Object {
+        "id": 1,
+        "posts": Array [
+          Object {
+            "title": "Cool first post",
+          },
+        ],
+      },
+      Object {
+        "id": 2,
+        "posts": Array [
+          Object {
+            "title": "Cool second post",
+          },
+          Object {
+            "title": "Cool third post",
+          },
+        ],
+      },
+      Object {
+        "id": 3,
+        "posts": Array [
+          Object {
+            "title": "Cool fourth post",
+          },
+        ],
+      },
+      Object {
+        "id": 4,
+        "posts": Array [],
+      },
+    ],
+    "post": Object {
+      "title": "Cool first post",
+    },
+  },
+}
+`;

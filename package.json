@@ -9,7 +9,8 @@
     "prestart:gateway": "wait-on tcp:3010 && wait-on tcp:3020",
     "start:gateway": "cd ./service-gateway && npm run start",
     "start": "run-p start:*",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "ci": "start-server-and-test start tcp:3000 test"
   },
   "repository": {
     "type": "git",
@@ -22,7 +23,10 @@
   },
   "homepage": "https://github.com/kriswep/graphql-microservices#readme",
   "devDependencies": {
+    "isomorphic-fetch": "^2.2.1",
+    "jest": "^24.8.0",
     "npm-run-all": "^4.1.5",
+    "start-server-and-test": "^1.9.1",
     "wait-on": "^3.2.0"
   }
 }
