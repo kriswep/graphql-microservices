@@ -1,0 +1,71 @@
+version: 2 # use CircleCI 2.0
+jobs: # a collection of steps
+  build: # runs not using Workflows must have a `build` job as entry point
+    working_directory: ~/graphql-microservices # directory where steps will run
+    docker: # run the steps with Docker
+      - image: circleci/node:10 # ...with this image as the primary container; this is where all `steps` will run
+    steps: # a collection of executable commands
+      - checkout # special step to check out source code to working directory
+      ##########################
+      # install base dependencies
+      - restore_cache: # special step to restore the dependency cache
+          # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
+          key: dependency-cache-{{ checksum "package.json" }}-{{ checksum "package-lock.json" }}
+      - run:
+          name: install-npm
+          command: npm install
+      - save_cache: # special step to save the dependency cache
+          key: dependency-cache-{{ checksum "package.json" }}-{{ checksum "package-lock.json" }}
+          paths:
+            - ./node_modules
+      ##########################
+      # install gateway dependencies
+      - restore_cache: # special step to restore the dependency cache
+          # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
+          key: dependency-cache-{{ checksum "service-gateway/package.json" }}-{{ checksum "service-gateway/package-lock.json" }}
+      - run:
+          name: install-npm-gateway
+          command: cd service-gateway && npm install
+      - save_cache: # special step to save the dependency cache
+          key: dependency-cache-{{ checksum "service-gateway/package.json" }}-{{ checksum "service-gateway/package-lock.json" }}
+          paths:
+            - ./service-gateway/node_modules
+      ##########################
+      # install user dependencies
+      - restore_cache: # special step to restore the dependency cache
+          # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
+          key: dependency-cache-{{ checksum "service-user/package.json" }}-{{ checksum "service-user/package-lock.json" }}
+      - run:
+          name: install-npm-user
+          command: cd service-user && npm install
+      - save_cache: # special step to save the dependency cache
+          key: dependency-cache-{{ checksum "service-user/package.json" }}-{{ checksum "service-user/package-lock.json" }}
+          paths:
+            - ./service-user/node_modules
+      ##########################
+      # install post dependencies
+      - restore_cache: # special step to restore the dependency cache
+          # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
+          key: dependency-cache-{{ checksum "service-post/package.json" }}-{{ checksum "service-post/package-lock.json" }}
+      - run:
+          name: install-npm-post
+          command: cd service-post && npm install
+      - save_cache: # special step to save the dependency cache
+          key: dependency-cache-{{ checksum "service-post/package.json" }}-{{ checksum "service-post/package-lock.json" }}
+          paths:
+            - ./service-post/node_modules
+      ##########################
+      # run tests
+      - run:
+          name: test
+          command: npm run ci
+      ##########################
+      # Test docker integration
+      - setup_remote_docker
+      - run:
+          name: docker-compose
+          command: |
+            set -x
+            docker-compose up --build -d
+            #docker run --network container:service-gateway \
+              #appropriate/curl --retry 10 --retry-delay 1 --retry-connrefused http://localhost:3000
