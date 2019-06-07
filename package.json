@@ -1,0 +1,28 @@
+{
+  "name": "graphql-microservices",
+  "version": "1.0.0",
+  "description": "This project showcases, how one could set up a graphql server using a (mildy simplified) microservice architecture.",
+  "main": " ",
+  "scripts": {
+    "start:user": "cd ./service-user && npm run start",
+    "start:post": "cd ./service-post && npm run start",
+    "prestart:gateway": "wait-on tcp:3010 && wait-on tcp:3020",
+    "start:gateway": "cd ./service-gateway && npm run start",
+    "start": "run-p start:*",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kriswep/graphql-microservices.git"
+  },
+  "author": "Christoph Benjamin Weber",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kriswep/graphql-microservices/issues"
+  },
+  "homepage": "https://github.com/kriswep/graphql-microservices#readme",
+  "devDependencies": {
+    "npm-run-all": "^4.1.5",
+    "wait-on": "^3.2.0"
+  }
+}
