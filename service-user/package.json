@@ -14,7 +14,7 @@
     "apollo-server": "^2.6.3",
     "esm": "^3.2.25",
     "graphql": "^14.7.0",
-    "lodash": "^4.17.19"
+    "lodash": "^4.17.21"
   },
   "devDependencies": {
     "prettier": "2.2.1"
