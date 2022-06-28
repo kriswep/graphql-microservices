@@ -10,8 +10,8 @@
   "author": "Christoph Benjamin Weber",
   "license": "MIT",
   "dependencies": {
-    "@apollo/gateway": "^0.29.0",
-    "apollo-server": "^2.6.3",
+    "@apollo/gateway": "^2.0.0",
+    "apollo-server": "^3.0.0",
     "esm": "^3.2.25",
     "graphql": "^14.7.0"
   },
