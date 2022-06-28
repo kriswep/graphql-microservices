@@ -13,7 +13,7 @@
     "@apollo/gateway": "^0.29.0",
     "apollo-server": "^2.6.3",
     "esm": "^3.2.25",
-    "graphql": "^14.7.0"
+    "graphql": "^16.0.0"
   },
   "devDependencies": {
     "prettier": "2.7.1"
